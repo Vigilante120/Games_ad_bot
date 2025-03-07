@@ -1,0 +1,15 @@
+# Ignore sensitive files
+token.txt
+
+# Ignore Python cache files
+__pycache__/
+
+# Ignore virtual environments
+venv/
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore logs
+*.log
