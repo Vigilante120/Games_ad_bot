@@ -155,7 +155,9 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text("🚫 Conversation cancelled.")
     return ConversationHandler.END
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+with open("token.txt", "r") as file:
+    BOT_TOKEN = file.read().strip()
+
 
 def main():
     application = ApplicationBuilder().token(BOT_TOKEN).build()
