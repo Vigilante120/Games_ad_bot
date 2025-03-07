@@ -155,9 +155,9 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text("🚫 Conversation cancelled.")
     return ConversationHandler.END
 
-with open("token.txt", "r") as file:
-    BOT_TOKEN = file.read().strip()
-
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+if not BOT_TOKEN:
+    raise ValueError("BOT_TOKEN environment variable not set!")
 
 def main():
     application = ApplicationBuilder().token(BOT_TOKEN).build()
@@ -182,13 +182,3 @@ if __name__ == "__main__":
     main()
 
 
-# enter game name: User input
-# after this all the question should be answered in yes or no button
-# available for PS5 Primary ?
-# available for PS5 Secondary ?
-# is the game available for ps4 ?
-# if answer is yes = ask available for ps4 primary ? then ask available for ps4 secondary ?
-# if answer is no update GAME Is not available for ps4
-# is the game available offline ?
-# if answer is yes is return 2x OFFLINE available for BOTH PS4 | PS5
-# if answer is no return Game is ONLY ONLINE PLAYABLE
